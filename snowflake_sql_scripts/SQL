@@ -1,0 +1,6 @@
+```sql
+CREATE TABLE FRUIT_OPTIONS (
+    FRUIT_ID NUMBER,
+    FRUIT_NAME VARCHAR(25)
+);
+```sql 
