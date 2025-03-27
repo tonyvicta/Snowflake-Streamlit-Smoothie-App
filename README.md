@@ -9,6 +9,7 @@ This project builds a web-based smoothie order form using **Snowflake**, **Strea
 - Streamlit in Snowflake (SiS App)
 - Amazon Web Services (AWS - trial account)
 - Python
+- SQL
 
 ---
 
