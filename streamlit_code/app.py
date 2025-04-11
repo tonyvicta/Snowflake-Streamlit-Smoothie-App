@@ -1,8 +1,3 @@
-🧑‍💻 Streamlit App (SiS App)
-App Title: Custom Smoothie Order Form
-App Location: SMOOTHIES.PUBLIC
-Warehouse: COMPUTE_WH
-
 # import python packages 
 import streamlit as st
 from snowflake.snowpark.functions import col
@@ -47,38 +42,3 @@ if ingredients_List:
     st.success(f"✅ Your Smoothie is ordered, {name_on_order}!")
 
   st.stop()
-
-
-🧑‍💻 Streamlit App (SiS App)
-App Title: Pending Smoothie Orders
-App Location: SMOOTHIES.PUBLIC
-Warehouse: COMPUTE_WH
-
-# Import python packages
-import streamlit as st
-from snowflake.snowpark.context import get_active_session
-from snowflake.snowpark.functions import col
-
-# Write directly to the app
-st.title("🥤 Pending Smoothie Orders 🥤")
-st.write("Orders that need to be filled.")
-
-# Get active Snowflake session
-session = get_active_session()
-
-# Get unfilled orders from Snowflake
-my_dataframe = session.table("smoothies.public.orders").filter(col("ORDER_FILLED") == 0).to_pandas()
-
-# ✅ Display editable table with checkboxes
-editable_df = st.data_editor(
-    my_dataframe[["INGREDIENTS", "NAME_ON_ORDER", "ORDER_FILLED"]],
-    use_container_width=True,
-    disabled=["INGREDIENTS", "NAME_ON_ORDER"]  # prevent editing these columns
-)
-
-submitted = st.button('Submit')
-
-if submitted:
-    st.success("Someone clicked the button.", icon="👍")
-
-
