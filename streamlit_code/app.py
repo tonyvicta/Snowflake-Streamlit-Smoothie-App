@@ -41,16 +41,7 @@ if ingredients_List:
 
 #st.write(ingredients_string)
 
-name_on_order = st.text_input("Enter your name")
 
-if ingredients_List:
-    ingredients_string = ''
-
-    for fruit_chosen in ingredients_List:
-        ingredients_string += fruit_chosen + ' '
-        st. subheader(fruit_chosen + ' Nutrition Information')
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
-        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
     # Moved inside this block so ingredients_string is defined
     my_insert_stmt = f"""
