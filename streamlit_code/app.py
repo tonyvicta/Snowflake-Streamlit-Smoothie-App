@@ -19,6 +19,15 @@ session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 pd_df = my_dataframe.to_pandas()
 
+search_lookup = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen]
+if search_lookup.empty:
+    st.error(f"❌ No SEARCH_ON found for: {fruit_chosen}")
+    continue
+
+search_on = search_lookup['SEARCH_ON'].iloc[0]
+st.write(f"📡 Calling API with: {search_on}")
+
+
 # Ingredient selector
 ingredients_List = st.multiselect(
     'Choose up to 5 ingredients:',
