@@ -32,23 +32,21 @@ name_on_order = st.text_input("Enter your name")
 if ingredients_List:
     ingredients_string = ''
 
-    for fruit_chosen in ingredients_List:
-            ingredients_string += fruit_chosen + ' '
-        
-            search_on=pd_df. loc[pd_df ['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc [0]
-         # st.write( 'The search value for', fruit_chosen, ' is ', search_on, *.')
-            st. subheader (fruit_chosen + ' Nutrition Information')
-            smoothiefroot_response = requests.get ("https://my.smoothiefroot.com/api/fruit/all/" + search_on)
-        
- if smoothiefroot_response.ok:
-    try:
-        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
-    except requests.exceptions.JSONDecodeError:
-        st.error("❌ The API response is not valid JSON.")
-        st.text(smoothiefroot_response.text[:300])  # Optional debug
- else:
+for fruit_chosen in ingredients_List:
+    ingredients_string += fruit_chosen + ' '
+    st.subheader(f"{fruit_chosen} Nutrition Information")
+
+    smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
+
+    if smoothiefroot_response.ok:
+        try:
+            sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        except requests.exceptions.JSONDecodeError:
+            st.error("❌ The API response is not valid JSON.")
+            st.text(smoothiefroot_response.text[:300])  # Optional debug
+    else:
         st.error(f"❌ API call failed with status {smoothiefroot_response.status_code}")
-  
+
 
     my_insert_stmt = f"""
         INSERT INTO smoothies.public.orders (ingredients, name_on_order)
