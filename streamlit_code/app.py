@@ -28,7 +28,9 @@ if ingredients_List:
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
-    
+# Ensure this is somewhere above
+name_on_order = st.text_input("Enter your name")
+
 # st.write(ingredients_string)
 
 my_insert_stmt = f"""
