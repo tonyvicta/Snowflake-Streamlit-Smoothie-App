@@ -41,7 +41,7 @@ if ingredients_List:
 
 #st.write(ingredients_string)
 
-
+name_on_order = st.text_input("Enter your name")
 
     # Moved inside this block so ingredients_string is defined
     my_insert_stmt = f"""
