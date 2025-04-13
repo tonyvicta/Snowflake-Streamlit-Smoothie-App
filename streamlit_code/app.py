@@ -36,7 +36,15 @@ if ingredients_List:
         st.subheader(f"{fruit_chosen} Nutrition Information")
 
         # ✅ Lookup the correct API name
-        search_on = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
+search_lookup = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen]
+if search_lookup.empty:
+    st.error(f"❌ No SEARCH_ON found for: {fruit_chosen}")
+    continue
+
+search_on = search_lookup['SEARCH_ON'].iloc[0]
+st.write(f"📡 Calling API with: {search_on}")
+      
+
         st.write(f"🔍 API search key: {search_on}")  # Optional debug
 
         # ✅ API request using SEARCH_ON
