@@ -35,3 +35,9 @@ smoothie-order-app/
 │
 └── README.md
 ```
+
+
+
+
+
+[![Smoothie App](mysmoothie.png)](https://mysmoothie.streamlit.app/)
