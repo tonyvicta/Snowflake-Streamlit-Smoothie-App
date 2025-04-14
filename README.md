@@ -40,4 +40,4 @@ smoothie-order-app/
 
 
 
-[![Smoothie App](mysmoothie.png)](https://mysmoothie.streamlit.app/)
+[![Smoothie App](screenshots/mysmoothie.png)](https://mysmoothie.streamlit.app/)
