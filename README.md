@@ -38,6 +38,13 @@ smoothie-order-app/
 
 
 
+### 🥤 Try My Smoothie Web App
+
+<a href="https://mysmoothie.streamlit.app/">
+  <img src="https://raw.githubusercontent.com/tonyvicta/Snowflake-Streamlit-Smoothie-App/main/screenshots/mysmoothie.png" width="600"/>
+</a>
 
 
-[![Smoothie App](screenshots/mysmoothie.png)](https://mysmoothie.streamlit.app/)
+Build your own smoothie and place an order with real-time nutrition info! 🍓🍌🥭
+
+
